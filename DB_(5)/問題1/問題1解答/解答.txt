@@ -1,0 +1,133 @@
+
+-- 【01】
+ SELECT code,name,price,item,related FROM tbl_item;
+-- 【02】 
+SELECT name FROM tbl_item;
+-- 【03】 
+SELECT * FROM tbl_order;
+-- 【04】 
+SELECT order_number,branch,code FROM tbl_order;
+-- 【05】 
+INSERT INTO tbl_item(code,name,price,item) VALUES ('W0461','冬のあったかコート',12800,'1'); 
+INSERT INTO tbl_item(code,name,price,item) VALUES ('S0331','春のさわやかコート',6800,'1'); 
+INSERT INTO tbl_item(code,name,price,item) VALUES ('A0582','秋のシックなコート',9800,'1'); 
+-- 【06】 
+SELECT * FROM tbl_item WHERE code='W1252';
+-- 【07】 
+UPDATE tbl_item SET price = 500 WHERE code='S0023';
+-- 【08】 
+SELECT * FROM tbl_item WHERE price <= 1000;
+-- 【09】
+ SELECT * FROM tbl_item WHERE price >= 50000;
+-- 【10】 
+SELECT * FROM tbl_order WHERE order_date >= '2018-01-01';
+-- 【11】 
+SELECT * FROM tbl_order WHERE order_date < '2017-12-01';
+-- 【12】 
+SELECT * FROM tbl_item WHERE item <>'1';
+-- 【13】 
+SELECT * FROM tbl_order WHERE coupon = 0;
+-- 【14】 
+SELECT * FROM tbl_order WHERE code LIKE 'N%';
+-- 【15】 
+SELECT code,name,price FROM tbl_item WHERE name LIKE '%コート%';
+-- 【16】 
+SELECT code,item FROM tbl_item WHERE item IN ('2','3','9'); 
+-- 【17】 
+SELECT * FROM tbl_item WHERE code BETWEEN ('A0100') AND ('A0500');
+-- 【18】 
+SELECT * FROM tbl_order WHERE code IN ('N0501','N1021','N0223');
+-- 【19】
+SELECT * FROM tbl_item WHERE item = '3'AND name LIKE '%水玉%';
+-- 【20】 
+SELECT * FROM tbl_item WHERE name LIKE '%軽い% 'OR name LIKE '%ゆるふわ%';
+-- 【21】 
+SELECT * FROM tbl_item WHERE (item = '1'AND price <= 3000) OR (item = '3' AND price >= 10000); 
+-- 【22】 
+SELECT code FROM tbl_order WHERE order_date >='2018-03-01'AND order_date < '2018-04-01' AND counts >= 3; 
+-- 【23】 
+SELECT * FROM tbl_order WHERE counts >= 10 OR coupon = 0 ;
+-- 【24】 商品テーブルの主キーは「商品コード」、注文テーブルの主キーは「注文日・注文番号・注文枝番」
+-- 【25】 
+SELECT code,name FROM tbl_item WHERE item ='1' ORDER BY code DESC; 
+-- 【26】 
+SELECT order_date ,order_number, branch,code,counts FROM tbl_order WHERE order_date >= '2018-03-01'
+ORDER BY order_date, order_number, branch;
+-- 【27】 
+SELECT DISTINCT code FROM tbl_order ORDER BY code;
+-- 【28】 
+SELECT * FROM tbl_haiban WHERE finish_date >= '2016-12-01' AND finish_date < '2017-01-01'
+UNION SELECT * FROM  tbl_haiban WHERE total_sum > 100 ORDER BY total_sum DESC; 
+-- 【29】 
+SELECT tbl_item.code FROM tbl_item LEFT JOIN tbl_order ON tbl_item.code = tbl_order.code WHERE tbl_order.order_date is null ORDER BY tbl_item.code;
+-- (WHERE句内の絞り込み条件としてのカラムはorder_dateでなくても、order_num, branch, countsのいずれかなら正解です。) 
+-- 【30】 
+SELECT tbl_item.code FROM tbl_item INNER JOIN tbl_order ON tbl_item.code = tbl_order.code ORDER BY tbl_item.code DESC;
+-- 【31】 
+SELECT code,name,price FROM tbl_item WHERE item = '9' AND price <= 1000 UNION 
+SELECT code,name,price FROM tbl_item WHERE item = '9' AND price > 10000 ORDER BY price,code; 
+-- 【32】 
+SELECT code,price,price*0.95 AS キャンペーン価格 FROM tbl_item WHERE item ='9' ORDER BY code;
+-- 【33】 
+UPDATE tbl_order SET coupon = coupon + 300 WHERE order_date >='2018-03-12' AND order_date < '2018-03-15' 
+AND counts >= 2 AND coupon <>0; 
+-- 【34】 
+UPDATE tbl_order SET counts = counts-1 WHERE order_number = '201802250126'AND code ='W0156';
+-- 【35】 
+SELECT CONCAT(order_number , '-',CAST(branch AS CHAR)) FROM tbl_order WHERE order_number >='201710010001' 
+AND order_number <= '201710319999';
+-- 【36】 
+SELECT name,LENGTH(name) AS 文字数 FROM tbl_item WHERE LENGTH(name) >10 ORDER BY LENGTH(name);
+-- 【37】 
+SELECT order_date , SUBSTRING(order_number,9,4) AS 注文番号 FROM tbl_order;
+-- 【38】 
+UPDATE tbl_item SET code = CONCAT('E', SUBSTRING( code,2,4)) WHERE SUBSTRING(code,1,1) ='M' ;
+-- 【39】 
+SELECT SUBSTRING(order_number,9,4) AS 注文番号 FROM tbl_order 
+WHERE SUBSTRING(order_number,9,4) >= '1000' AND SUBSTRING(order_number,9,4) <= '2000' 
+ORDER BY SUBSTRING(order_number,9,4);
+-- 【40】 
+UPDATE tbl_haiban SET finish_date = CURRENT_DATE WHERE code = 'S1990';
+-- 【41】 
+SELECT SUM(counts) AS 数量合計 FROM tbl_order;
+-- 【42】 
+SELECT order_date,SUM(counts) AS 数量合計 
+FROM tbl_order GROUP BY order_date ORDER BY order_date;
+-- 【43】 
+SELECT item, MIN(price) AS 最小額 
+,MAX(price) AS 最高額 FROM tbl_item GROUP BY item ORDER BY item;
+-- 【44】 
+SELECT code, SUM(counts) AS 数量合計 FROM tbl_order 
+GROUP BY code ORDER BY code;
+-- 【45】 
+SELECT code, SUM(counts) AS 数量合計 FROM tbl_order 
+GROUP BY code HAVING SUM(counts) < 5; 
+-- 【46】 
+SELECT COUNT(coupon) AS 割引件数, SUM(coupon) AS 割引額合計 
+FROM tbl_order WHERE coupon!=0;
+-- 【47】 
+SELECT SUBSTRING(order_number,1,6) AS 年月
+, COUNT(*) AS 注文件数 FROM tbl_order 
+WHERE branch = 1 GROUP BY SUBSTRING(order_number,1,6)
+ ORDER BY SUBSTRING(order_number,1,6);
+-- 【48】 
+SELECT code FROM tbl_order WHERE code LIKE 'z%' 
+GROUP BY code HAVING SUM(counts)>= 100; 
+-- 【49】 
+SELECT code,name, price,(SELECT sum(counts) FROM tbl_order WHERE code='S0604') FROM tbl_item WHERE code='S0604';
+-- 【50】 
+UPDATE tbl_order SET code = (SELECT code FROM tbl_item WHERE item = '2'AND 
+name LIKE '%ブーツ%'AND name LIKE '%雨%' AND name LIKE '%安心%')
+WHERE order_date = '2018-03-15' AND order_number = '201803150014'AND branch='1';
+-- 【51】 
+SELECT order_date,code FROM tbl_order WHERE code IN (SELECT code FROM tbl_item 
+WHERE name LIKE '%あったか%') ORDER BY order_date;
+-- 【52】 
+SELECT code, SUM(counts) AS 数量 FROM tbl_order GROUP BY code HAVING
+SUM(counts) > ALL(SELECT AVG(counts) FROM tbl_order GROUP BY code);
+-- 【53】 
+INSERT INTO tbl_order SELECT order_date,order_number,MAX(branch) + 1,'S1003',1, 0 FROM tbl_order
+WHERE order_date = '2018-03-21' AND order_number ='201803210080'GROUP BY order_date,order_number; 
+INSERT INTO tbl_order SELECT order_date,order_number,MAX(branch) + 1,'A0052',2, 500 FROM tbl_order
+WHERE order_date = '2018-03-22' AND order_number ='201803220901'GROUP BY order_date,order_number; 
+

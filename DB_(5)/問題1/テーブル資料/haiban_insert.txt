@@ -1,0 +1,47 @@
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'A0931','時代遅れのジャケット',7800,1,'2008-7-5',161
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'B0090','ヒール役のハイヒール',8900,2,'2016-12-1',75
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'N0223','ばねのおもちゃ（きりん）',630,9,'2016-12-1',88
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'N0501','ばねのおもちゃ（かもしか）',630,9,'2016-12-1',55
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'N1021','ばねのおもちゃ（しまうま）',630,9,'2016-12-1',65
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'S1990','ラップスカート',6800,1,'2017-2-10',18
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_haiban( code,name,price,item,finish_date,total_sum )
+VALUES
+(
+    'Z8980','ハンカチ（ペイズリー）',300,3,'2016-11-30',56
+);

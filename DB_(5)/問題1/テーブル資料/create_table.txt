@@ -1,0 +1,23 @@
+CREATE TABLE tbl_haiban(
+	code CHAR(5) PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	price INTEGER NOT NULL,
+	item CHAR(1) NOT NULL,
+	finish_date DATE NOT NULL,
+	total_sum INTEGER NOT NULL);
+CREATE TABLE tbl_order(
+	order_date DATE,
+	order_number CHAR(12) ,
+	branch INTEGER ,
+	code CHAR(5) NOT NULL,
+	counts INTEGER NOT NULL,
+	coupon INTEGER,
+	PRIMARY KEY(order_date,order_number,branch)
+	);
+CREATE TABLE tbl_item(
+	code CHAR(5) PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	price INTEGER NOT NULL,
+	item CHAR(1) NOT NULL,
+	related CHAR(5));
+	

@@ -1,0 +1,29 @@
+CREATE TABLE tbl_haishi(
+	kouza_no CHAR(7) PRIMARY KEY,
+	kouza_name VARCHAR(40) NOT NULL,
+	kouza_type CHAR(1) NOT NULL,
+	final_amount INT NOT NULL,
+	final_date DATE);
+
+	
+CREATE TABLE tbl_kouza(
+	kouza_no CHAR(7) PRIMARY KEY,
+	kouza_name VARCHAR(40) NOT NULL,
+	kouza_type CHAR(1) NOT NULL,
+	kouza_amount INT NOT NULL,
+	update_date DATE);
+	
+CREATE TABLE tbl_jiyu(
+	torihiki_id  INT PRIMARY KEY,
+	torihiki_name VARCHAR(20) NOT NULL	
+	);
+	
+CREATE TABLE tbl_torihiki(
+	torikihi_no INT PRIMARY KEY,
+	torihiki_id INT ,
+	torihiki_date DATE NOT NULL,
+	kouza_no CHAR(7) NOT NULL,
+	input_amount INT,
+	output_amount INT,
+    FOREIGN KEY fk_torihiki(torihiki_id) REFERENCES tbl_jiyu(torihiki_id)
+	);

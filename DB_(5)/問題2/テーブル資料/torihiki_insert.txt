@@ -1,0 +1,202 @@
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    1,9,'2016-01-05','0051432',NULL,41310
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    2,1,'2016-03-01','1017119',65000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    3,2,'2016-03-01','1046990',NULL,19000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    4,5,'2016-03-01','0945671',NULL,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    5,1,'2016-09-03','0887132',1000000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    6,1,'2016-12-10','0887132',1000000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    7,3,'2017-06-10','0887132',1000000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    8,2,'2017-11-26','1017119',NULL,200000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    9,1,'2017-12-10','2086041',1164047,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    10,3,'2017-12-10','0887132',491000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    11,1,'2017-12-25','0037651',30000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    12,2,'2017-12-28','1115600',NULL,100000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    13,3,'2017-12-28','1115600',NULL,120000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    14,6,'2017-12-28','1115600',NULL,256
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    15,3,'2017-12-28','1115600',31500,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    16,1,'2018-01-05','0311240',100000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    17,1,'2018-01-11','0351333',50000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    18,3,'2018-01-11','0351333',NULL,12600
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    19,6,'2018-01-11','0351333',NULL,128
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    20,3,'2018-01-21','1106405',1714930,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    21,1,'2018-02-01','3104451',100000,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    22,2,'2018-02-25','3104451',NULL,60000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    23,4,'2018-02-28','2750902',NULL,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    24,3,'2018-03-13','3104451',807310,NULL
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    25,2,'2018-03-13','3104451',NULL,55000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    26,3,'2018-03-13','3104451',NULL,15100
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    27,2,'2018-03-20','0311240',NULL,36591
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    28,2,'2018-03-23','1234161',NULL,30000
+);
+
+/* INSERT QUERY */
+INSERT INTO tbl_torihiki( torikihi_no,torihiki_id,torihiki_date,kouza_no,input_amount,output_amount )
+VALUES
+(
+    29,1,'2018-03-23','2750902',50000,NULL
+);

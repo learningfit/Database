@@ -1,0 +1,147 @@
+-- 【01】 
+SELECT kouza_no,kouza_name,kouza_type,kouza_amount,update_date FROM tbl_kouza;
+-- 【02】 
+SELECT kouza_no FROM tbl_kouza;
+-- 【03】 
+SELECT kouza_no , kouza_amount FROM tbl_kouza;
+-- 【04】 
+SELECT * FROM tbl_kouza;
+-- 【05】 
+UPDATE tbl_kouza SET kouza_name = 'xxxxx';
+-- 【06】 
+UPDATE tbl_kouza SET kouza_amount= 99999999, update_date = '2018-03-01';
+-- 【07】 
+INSERT INTO tbl_kouza(kouza_no ,kouza_name,kouza_type,kouza_amount,update_date) VALUES 
+('0642191','アオキ ハルカ','l', 3640551,'2018-03-13'); 
+INSERT INTO tbl_kouza(kouza_no,kouza_name,kouza_type,kouza_amount,update_date) 
+VALUES ('1039410','キノシタ リュウジ','1', 259017,'2017-11-30'); 
+INSERT INTO tbl_kouza(kouza_no,kouza_name,kouza_type,kouza_amount)
+VALUES ('1239855','タカシナ ミツル','2', 6509773); 
+-- 【08】 
+DELETE FROM tbl_kouza;
+-- 再度「kouza_insert」のデータ追加のSQLを実行してから以降の問題を解答してください
+-- 【09】 
+SELECT * FROM tbl_kouza WHERE kouza_no = 0037651;
+-- 【10】 
+SELECT * FROM tbl_kouza WHERE kouza_amount > 0;
+-- 【11】 
+SELECT * FROM tbl_kouza WHERE kouza_no <1000000;
+-- 【12】 
+SELECT * FROM tbl_kouza WHERE update_date <'2018-01-01';
+-- 【13】 
+SELECT * FROM tbl_kouza WHERE kouza_amount >= 1000000; 
+-- 【14】 
+SELECT * FROM tbl_kouza WHERE kouza_type <> '1';
+-- 【15】 
+SELECT * FROM tbl_kouza WHERE update_date IS NULL; 
+-- 【16】 
+SELECT * FROM tbl_kouza WHERE kouza_name LIKE '%ハシ%';
+-- 【17】 
+SELECT * FROM tbl_kouza WHERE update_date BETWEEN '2018-01-01'AND '2018-01-31';
+-- 【18】 
+SELECT * FROM tbl_kouza WHERE kouza_type IN ('2','3');
+-- 【19】 
+SELECT * FROM tbl_kouza WHERE kouza_name IN ('サカタ　リョウヘイ','マツモト　ミワコ','ハマダ　サトシ');
+-- 【20】 
+SELECT * FROM tbl_kouza WHERE update_date >= '2017-12-30' AND update_date < '2018-01-05';
+-- 【21】 
+SELECT * FROM tbl_kouza WHERE kouza_amount < 10000 AND update_date IS NOT NULL; 
+-- 【22】 
+SELECT * FROM tbl_kouza WHERE kouza_no LIKE '2______' OR kouza_name LIKE'エ__%コ';
+-- 【23】 tbl_kouzaテーブルの主キーは「kouza_no」、tbl_torihikiテーブルの主キーは「torihiki_no」、tbl_torihiki事
+-- 由テーブルの主キーは「tbl_jiyu ID」
+-- 【24】 
+SELECT kouza_no,kouza_name,kouza_type,kouza_amount,update_date FROM tbl_kouza ORDER BY kouza_no;
+-- 【25】 
+SELECT DISTINCT kouza_name FROM tbl_kouza ORDER BY kouza_name;
+-- 【26】 
+SELECT kouza_no,kouza_name,kouza_type,kouza_amount,update_date FROM tbl_kouza ORDER BY 4DESC,1;
+-- 【27】 
+SELECT kouza_no FROM tbl_kouza UNION SELECT kouza_no FROM tbl_haishi ORDER BY kouza_no; 
+-- 【28】 
+SELECT distinct tbl_kouza.kouza_name FROM tbl_kouza LEFT JOIN tbl_haishi ON tbl_kouza.kouza_no = tbl_haishi.kouza_no 
+WHERE tbl_haishi.kouza_no IS NULL ORDER BY tbl_kouza.kouza_name DESC;
+
+-- 【29】 
+SELECT tbl_kouza.kouza_name FROM tbl_kouza INNER JOIN tbl_haishi ON tbl_kouza.kouza_no = tbl_haishi.kouza_no ORDER BY tbl_kouza.kouza_name; 
+
+-- 【30】 
+SELECT kouza_no,kouza_amount FROM tbl_kouza WHERE kouza_amount = 0 
+UNION SELECT kouza_no, final_amount FROM tbl_haishi WHERE final_amount<> 0 ORDER BY kouza_no; 
+-- 【31】 
+SELECT kouza_no,kouza_name,'○'AS 口座区分 FROM tbl_kouza 
+UNION SELECT kouza_no,kouza_name,'X'AS 口座区分 FROM tbl_haishi ORDER BY kouza_name;
+-- 【32】 
+SELECT kouza_no,kouza_amount/1000 AS 千円単位の残高 FROM tbl_kouza WHERE kouza_amount >= 1000000;
+-- 【33】 
+INSERT INTO tbl_kouza(kouza_no ,kouza_name,kouza_type,kouza_amount,update_date) VALUES 
+('0652281','タカギ ノブオ','1',100000 + 3000,'2018-04-01'); 
+INSERT INTO tbl_kouza(kouza_no ,kouza_name,kouza_type,kouza_amount,update_date) VALUES 
+('1026413','マツモト サワコ','1', 300000 + 3000, '2018-04-02'); 
+INSERT INTO tbl_kouza(kouza_no ,kouza_name,kouza_type,kouza_amount,update_date) VALUES 
+('2239710','ササキ シゲノリ','1', 1000000 + 3000,'2018-04-03'); 
+-- 【34】 
+UPDATE tbl_kouza SET kouza_amount=(kouza_amount- 3000) * 1.003 
+WHERE kouza_no IN ('0652281','1026413','2239710');
+-- 【35】 
+SELECT kouza_no,update_date FROM tbl_kouza 
+WHERE update_date < '2017-01-01';
+-- 【36】 
+SELECT kouza_no,CONCAT('力',kouza_name) AS 名義 FROM tbl_kouza WHERE kouza_type = '3';
+-- 【37】 
+SELECT * FROM tbl_kouza WHERE SUBSTRING(kouza_name,1, 5) LIKE '%カワ%';
+-- 【38】 
+SELECT * FROM tbl_kouza WHERE LENGTH(CAST(kouza_amount AS CHAR)) >= 4 AND SUBSTRING(CAST(kouza_amount AS CHAR), LENGTH(CAST(kouza_amount AS CHAR))-2, 3) ='000'; 
+-- 【39】 
+INSERT INTO tbl_kouza (kouza_no,kouza_name ,kouza_type ,kouza_amount,update_date)
+VALUES ('0351262', 'イトカワ ダイ ', '2', 635110,CURRENT_DATE);
+INSERT INTO tbl_kouza (kouza_no,kouza_name ,kouza_type ,kouza_amount,update_date)
+VALUES ('1015513','アキッ ジュンジ ','l',88463,CURRENT_DATE); 
+INSERT INTO tbl_kouza (kouza_no,kouza_name ,kouza_type ,kouza_amount,update_date)
+VALUES ('1739298', 'ホシノ サトミ ','l',704610,CURRENT_DATE); 
+-- 【40】 
+SELECT kouza_no,kouza_name,kouza_type,kouza_amount,
+CONCAT(SUBSTRING(CAST(update_date AS CHAR),1, 4) ,'年',SUBSTRING(CAST(update_date AS CHAR),6 ,2) 
+,'月',SUBSTRING(CAST(update_date AS CHAR),9, 2) , '日')AS update_date 
+FROM tbl_kouza WHERE update_date >= '2018-01-01';
+-- 【41】 
+SELECT SUM(kouza_amount)AS 合計, MAX(kouza_amount)AS 最大, MIN(kouza_amount)AS 最小 ,AVG(kouza_amount)
+AS 平均, COUNT(*) AS 件数 FROM tbl_kouza;
+-- 【42】 
+SELECT COUNT(*) AS 件数 FROM tbl_kouza WHERE kouza_type <> 'l' AND kouza_amount >= 1000000 
+AND update_date <'2018-01-01';
+-- 【43】 
+SELECT COUNT(*)- COUNT(update_date) AS update_dateが登録されていない件数 FROM tbl_kouza;
+-- 【44】 
+SELECT MAX(kouza_name) , MIN(kouza_name) FROM tbl_kouza;
+-- 【45】 
+SELECT MAX(update_date),MIN(update_date) FROM tbl_kouza;
+-- 【46】 
+SELECT kouza_type,SUM(kouza_amount)AS 合計,MAX(kouza_amount)AS 最大,MIN(kouza_amount)AS 最小,
+AVG(kouza_amount) AS 平均 ,COUNT(*) AS件数 FROM tbl_kouza GROUP BY kouza_type;
+-- 【47】 
+SELECT SUBSTRING(kouza_no,7,1) AS 種別グループ,COUNT(*)AS 件数 FROM
+tbl_kouza GROUP BY SUBSTRING(kouza_no,7,1) ORDER BY 件数 DESC;
+-- 【48】 
+SELECT kouza_type ,SUM(kouza_amount)AS 合計 ,COUNT(*)AS 件数 FROM tbl_kouza GROUP BY kouza_type
+HAVING SUM(kouza_amount)> 3000000;
+-- 【49】 
+SELECT SUBSTRING(kouza_name,1,1) AS 名義 ,COUNT( kouza_name )AS 件数 
+,AVG(LENGTH(REPLACE(kouza_name ,'　',''))) AS 文字数の平均 FROM tbl_kouza 
+GROUP BY 
+SUBSTRING(kouza_name,1,1) HAVING COUNT(kouza_name)>= 10 
+OR AVG(CHAR_LENGTH(REPLACE(kouza_name ,'　',''))) > 5;
+-- 【50】 
+SELECT kouza_amount,(SELECT SUM(input_amount) FROM tbl_torihiki 
+WHERE kouza_no = '1115600' AND torihiki_date = '2017-12-28') AS 入金合計, 
+(SELECT SUM( output_amount)FROM tbl_torihiki 
+	WHERE kouza_no ='1115600' AND torihiki_date = '2017-12-28') AS 出金合計 
+FROM tbl_kouza WHERE kouza_no = '1115600';
+-- 【51】 
+SELECT kouza_no,kouza_name,kouza_amount FROM tbl_kouza WHERE kouza_no IN 
+(SELECT kouza_no FROM tbl_torihiki WHERE input_amount>= 1000000);
+-- 【52】 
+SELECT * FROM tbl_kouza WHERE update_date > ALL (SELECT torihiki_date FROM tbl_torihiki);
+-- 【53】 
+INSERT INTO tbl_haishi SELECT * FROM tbl_kouza WHERE kouza_no ='2761055';
+DELETE FROM tbl_kouza WHERE kouza_no = '2761055';
